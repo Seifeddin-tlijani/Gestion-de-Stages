@@ -1,0 +1,58 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un Stage :</h2>
+    </div>
+
+    <form [formGroup]="stageForm" (ngSubmit)="addStage()">
+    
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Id</label>
+            <input type="text" formControlName="idStage" class="form-control" />
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Titre du Stage</label>
+            <input type="text" formControlName="titre" class="form-control" />
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date de Début</label>
+            <input type="date" formControlName="dateDebut" class="form-control" />
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date de Fin</label>
+            <input type="date" formControlName="dateFin" class="form-control" />
+            
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Entreprise</label>
+            <input type="text" formControlName="entreprise" class="form-control" />
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Type</label>
+            <select class="form-control form-control-lg" formControlName="idType">
+                <option *ngFor="let type of types" [value]="type.id">
+                    {{ type.nom }}  
+                </option>
+                <option value="" disabled>Select a type</option> 
+            </select>
+        </div>
+        
+
+        <!-- <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Type</label>
+            <select class="form-control form-control-lg" formControlName="idType">
+                <option *ngFor="let type of types" [value]="type.idType">
+                    {{ type.nom }}
+                </option>
+            </select>
+        </div> -->
+        <div class="mt-2">
+            <button type="submit" class="btn btn-success">Ajouter</button>
+        </div>
+
+    </form>
+</div>

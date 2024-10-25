@@ -1,0 +1,62 @@
+
+<div class="container">
+    <div>
+      <h2>Modifier un Stage :</h2>
+    </div>
+    <form>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>ID Stage</label>
+        <input readonly type="text" [(ngModel)]="currentStage.id"
+               name="idStage" class="form-control">
+      </div>
+  
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Titre du Stage</label>
+        <input type="text" [(ngModel)]="currentStage.titre"
+               name="titre" class="form-control">
+      </div>
+  
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Entreprise</label>
+        <input type="text" [(ngModel)]="currentStage.entreprise"
+               name="entreprise" class="form-control">
+      </div>
+  
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Date de Début</label>
+        <input type="date" [ngModel]="currentStage.dateDebut | date: 'yyyy-MM-dd'"
+               (ngModelChange)="currentStage.dateDebut = $event"
+               name="dateDebut" class="form-control">
+      </div>
+  
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Date de Fin</label>
+        <input type="date" [ngModel]="currentStage.dateFin | date: 'yyyy-MM-dd'"
+               (ngModelChange)="currentStage.dateFin = $event"
+               name="dateFin" class="form-control">
+      </div>
+
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Type</label>
+        <select [(ngModel)]="updatedTypeId" name="type" class="form-control">
+          <option *ngFor="let type of types" [value]="type.id">{{ type?.nom }}
+
+          </option>
+          <option value="" disabled>Select a type</option> 
+
+         
+
+        </select>
+
+      </div>
+
+ 
+      
+      
+  
+      <div class="mt-2">
+        <button type="submit" (click)="updateStage()" class="btn btn-success">Modifier</button>
+      </div>
+    </form>
+  </div>
+  
