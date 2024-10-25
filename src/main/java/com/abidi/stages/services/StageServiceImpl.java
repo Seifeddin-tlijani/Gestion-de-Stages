@@ -2,12 +2,15 @@ package com.abidi.stages.services;
 
 import java.util.List;
 
+import com.abidi.stages.repos.TypeRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.abidi.stages.entities.Stage;
 import com.abidi.stages.entities.Type;
 import com.abidi.stages.repos.StageRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class StageServiceImpl implements StageService {
@@ -16,17 +19,25 @@ public class StageServiceImpl implements StageService {
     @Autowired
     private StageRepository stageRepository;
 
-    @Override
+    @Autowired
+    private TypeRepository typeRepository;
+
+    @Transactional
     public Stage saveStage(Stage stage) {
+        Type managedType = typeRepository.findById(stage.getType().getId())
+                .orElseThrow(() -> new EntityNotFoundException("Type not found"));
+        stage.setType(managedType);
         return stageRepository.save(stage);
     }
+
+
+
 
     @Override
     public Stage updateStage(Stage stage) {
         return stageRepository.save(stage);
     }
 
-    @Override
     public void deleteStage(Stage stage) {
         stageRepository.delete(stage);
     }

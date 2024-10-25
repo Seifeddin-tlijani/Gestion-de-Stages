@@ -10,7 +10,7 @@ import com.abidi.stages.services.StageService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
+@CrossOrigin("*")
 public class StageRESTController {
 	
 	@Autowired
@@ -36,6 +36,7 @@ public class StageRESTController {
 	public Stage updateStage(@RequestBody Stage stage) {
 		return stageService.updateStage(stage);
 	}
+
 
 	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
 	public void deleteStage(@PathVariable("id") Long id)

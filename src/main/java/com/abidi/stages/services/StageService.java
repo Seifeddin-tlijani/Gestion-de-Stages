@@ -11,6 +11,7 @@ import com.abidi.stages.entities.Type;
 public interface StageService {
 
 
+
     Stage saveStage(Stage stage);
     Stage updateStage(Stage stage);
     void deleteStage(Stage stage);

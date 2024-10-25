@@ -2,12 +2,7 @@ package com.abidi.stages.entities;
 
 import java.sql.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Stage {
@@ -25,8 +20,8 @@ public class Stage {
 
 	    private String entreprise;
 
-	    @ManyToOne
-	    @JoinColumn(name = "type_id")
+	    @ManyToOne(cascade = CascadeType.ALL)
+		@JoinColumn(name = "type_id")
 	    private Type type;
 
 	   
@@ -65,7 +60,16 @@ public class Stage {
 	        this.dateDebut = dateDebut;
 	    }
 
-	    public String getEntreprise() {
+
+
+	public Date getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
+	}
+	public String getEntreprise() {
 	        return entreprise;
 	    }
 
