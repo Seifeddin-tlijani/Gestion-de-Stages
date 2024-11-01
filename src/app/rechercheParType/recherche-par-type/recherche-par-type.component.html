@@ -1,0 +1,55 @@
+<!-- Search Form -->
+
+  
+  <!-- Type Selection Dropdown -->
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label>Recherche Par Type</label>
+    <select
+      class="form-control form-control-lg"
+      [(ngModel)]="IdType"
+      (change)="rechercherStages()"
+    >
+      <option *ngFor="let type of types" [value]="type.id">
+        {{ type.nom }}
+      </option>
+    
+    
+    </select>
+    <input
+    #searchInput
+    type="text"
+    class="form-control mt-2"
+        placeholder="Search by Title"
+    (keyup)="onKeyUp(searchInput.value)"
+  />
+  </div>
+  
+  <div class="container">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Titre</th>
+              <th>Date de Début</th>
+              <th>Date de Fin</th>
+              <th>Entreprise</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let stage of stages ">
+              <td>{{ stage.id }}</td>
+              <td>{{ stage.titre }}</td>
+              <td>{{ stage.dateDebut | date: 'shortDate' }}</td>
+              <td>{{ stage.dateFin | date: 'shortDate' }}</td>
+              <td>{{ stage.entreprise }}</td>
+              <td>{{ stage.type?.nom }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

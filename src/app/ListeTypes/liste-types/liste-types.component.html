@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <thead>
+        <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+            <app-update-type [type]="updatedType"
+            (typeUpdated)= "typeUpdated($event)"
+            [ajout]="ajout">
+        
+        </app-update-type>
+            
+            </div>
+    <tr> <th>Id</th><th>Nom Type</th> </tr>
+    </thead>
+    
+    <tbody >
+    <tr *ngFor="let type of types">
+    <td>{{type.id}}</td>
+    <td>{{type.nom}}</td>
+    <td><a class="btn btn-success" (click)="updateType(type)">Editer</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

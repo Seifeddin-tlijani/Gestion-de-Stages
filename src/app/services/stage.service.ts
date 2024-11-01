@@ -17,7 +17,8 @@ const httpOptions = {
 export class StageService {
 
   private apiURL: string = 'http://localhost:8281/stages/api';
-
+ 
+  apiURLType: string = 'http://localhost:8281/stages/type';
 
   constructor(private http: HttpClient) {
   }
@@ -42,6 +43,9 @@ export class StageService {
 
     return this.http.get<Type[]>(this.apiURL+"/type");
     }
+
+    
+
 
   consulterType(id: number): Type {
     return this.types.find(type => type.id === id)!;
@@ -76,6 +80,19 @@ export class StageService {
 return this.http.put<Stage>(this.apiURL, prod, httpOptions);
 }
 
+rechercherParType(idType: number):Observable< Type[]> {
+  const url = `${this.apiURL}/stagetype/${idType}`;
+  return this.http.get<Type[]>(url);
+  }
+
+rechercherParTitle(title: string):Observable< Type[]> {
+const url = `${this.apiURL}/stageTitle/${title}`;
+return this.http.get<Stage[]>(url);
+}
+
+ajouterType( type: Type):Observable<Type>{
+  return this.http.post<Type>(this.apiURLType, type, httpOptions);
+  }
 
   
 }

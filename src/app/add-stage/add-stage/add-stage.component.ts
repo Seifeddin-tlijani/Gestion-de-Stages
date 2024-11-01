@@ -17,10 +17,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class AddStageComponent implements OnInit {
  
-  types! : Type[];
+types! : Type[];
 newIdType! : number;
 newType! : Type;
-
 stageForm!: FormGroup;
 
 
@@ -28,11 +27,7 @@ stageForm!: FormGroup;
 
   constructor(private stageService:StageService ,
     private router : Router , private fb: FormBuilder
-  ){
-
-  }
- 
-
+  ){}
   ngOnInit() {
 
     this.stageForm = this.fb.group({
@@ -48,14 +43,12 @@ stageForm!: FormGroup;
       this.stageService.listeTypes().subscribe(typs => {this.types = typs;
       console.log(typs);
 
-      });;
+      // this.stageService.listeTypes().subscribe(typs => {console.log(typs);
+      // this.types = typs._embedded.types;
+});
+}
 
-    }
 
-    
-
-
-  
 
     addStage() {
       if (this.stageForm.valid) {

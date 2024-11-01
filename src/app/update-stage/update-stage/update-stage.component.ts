@@ -38,10 +38,7 @@ export class UpdateStageComponent implements OnInit {
     });
     }
 
- 
-
-
-
+  
 
 
     updateStage() {
