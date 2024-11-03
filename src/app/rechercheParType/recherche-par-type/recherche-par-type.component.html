@@ -1,9 +1,8 @@
-<!-- Search Form -->
 
   
-  <!-- Type Selection Dropdown -->
   <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
-    <label>Recherche Par Type</label>
+    <option value="" disabled selected>Recherche Par Type</option> 
+
     <select
       class="form-control form-control-lg"
       [(ngModel)]="IdType"
@@ -23,6 +22,7 @@
     (keyup)="onKeyUp(searchInput.value)"
   />
   </div>
+  
   
   <div class="container">
     <div class="card shadow mb-4">

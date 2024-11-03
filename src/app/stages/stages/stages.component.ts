@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Stage } from '../../model/stage.model';
 import { StageService } from '../../services/stage.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-stages',
   standalone: true,
@@ -14,7 +15,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class StagesComponent implements OnInit {
 
-  constructor(private stageService: StageService ) {
+  constructor(private stageService: StageService , public authService: AuthService
+    
+   ) {
   }
 
 

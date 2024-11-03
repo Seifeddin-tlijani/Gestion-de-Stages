@@ -50,7 +50,7 @@ ngOnInit(): void {
       this.stageService.rechercherParType(this.IdType).subscribe(
         (stages: Stage[]) => {
           this.stages = stages;
-          this.allStages = stages; // Store the full list of stages for filtering
+          this.allStages = stages; 
           console.log(stages);
         },
         (error: any) => {

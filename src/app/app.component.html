@@ -13,19 +13,19 @@
         <a class="navbar-brand" href="#">Gestion de Stages</a>
         
         <ul class="navbar-nav">
+         
             <li class="nav-item">
                 <a class="nav-link" routerLink="/stages">Home</a>
-
-
-             
-
             </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link">{{ authService.loggedUser }}</a>
+            </li> -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                     Stages
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" routerLink="/add-stage">Ajouter</a>
+                    <a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="/add-stage">Ajouter</a>
                     <a class="dropdown-item" href="#">Lister</a>
                 </div>
                
@@ -50,8 +50,12 @@
                     [username]
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Login</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a *ngIf="!authService.isLoggedIn()" class="dropdown-item" routerLink="/login">Login</a>
+    
+    
+                    <a *ngIf="authService.isLoggedIn()" class="dropdown-item" (click)="onLogout()">Logout</a>
+                    <!-- <a *ngIf="authService.isloggedIn" class="dropdown-item" (click)="authService.logout()">Logout</a> -->
+
                     <a class="dropdown-item" href="#">Profile</a>
                 </div>
             </li>
@@ -68,4 +72,3 @@
 
 </body>
 </html>
-

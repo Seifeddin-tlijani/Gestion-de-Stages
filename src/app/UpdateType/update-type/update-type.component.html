@@ -1,16 +1,15 @@
-
 <form>
     <div [hidden]="ajout">
-    <label>ID Type</label>
-    <input type="text" [(ngModel)]="type.id" name="idType" class="form-control w-25">
+        <label>ID Type</label>
+        <input type="text" [(ngModel)]="type.id" name="idType" class="form-control w-25">
     </div>
     <div>
-    <label>Nom Type</label>
-    <input type="text" [(ngModel)]="type.nom" name="nomCategorie" class="form-control"
-    placeholder="Entrez un nom de catégorie...">
+        <label>Nom Type</label>
+        <input type="text" [(ngModel)]="type.nom" name="nomType" class="form-control"
+        placeholder="Entrez un nom Type...">
     </div>
     <div class="mt-2">
-    <button type="submit" [disabled]="!type.nom" class="btn btn-success"
-    (click)="saveType()" >>{{ajout ? 'Ajouter' : 'Modifier'}}</button>
+        <button type="submit" [disabled]="!type.nom" class="btn btn-success"
+        (click)="saveType()">{{ajout ? 'Ajouter' : 'Modifier'}}</button>
     </div>
-    </form>
+</form>
